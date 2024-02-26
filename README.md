@@ -6,3 +6,12 @@ Añadidas capturas de funcionamiento de Tomcat y Glassfish
 
 Carpeta ANTyMaven/ANTHelloWorld
 Añadido proyecto HelloWorld con build.xml para ANT
+
+Carpeta MavenHelloWorld/HelloWorldQuickStart
+Añadido proyecto HelloWorld generado para Maven por comandos
+
+Carpeta MavenHelloWorld/HelloWorldEclipseIntegrado
+Añadido proyecto HelloWorld generado para Maven por integración en Eclipse
+
+Carpeta MavenHelloWorld/HelloWorldClassic
+Añadido proyecto HelloWorld generado en Eclipse y convertido a tipo Maven
