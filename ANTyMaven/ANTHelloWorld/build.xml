@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ANTHelloWorld" default="all" basedir=".">
+	<property environment="myenv"/>
+   <property name="base" location="./src"/>
+
+   <target name="init">
+      <property name="Hello" value="World"/>
+      <mkdir dir="${base}\..\class"/>
+   </target>
+   
+   <target name="all" depends="init,empaqueta,documenta">
+      <echo message="Aplicacion construida. Con JAVA_HOME = ${myenv.JAVA_HOME}"/>
+   </target>
+
+   <target name="empaqueta" depends="compila">
+      <jar destfile="${base}/../jar/HelloWorld.jar" includes="${base}/../class/**/*.class"/>
+   </target>
+
+   <target name="compila" depends="init">
+      <javac debug="true" deprecation="true" includeantruntime="false" srcdir="${base}" destdir="${base}/../class"/>
+   </target>
+
+   <target name="documenta">
+      <javadoc sourcepath="${base}" destdir="${base}/../javadoc" packagenames="*"/>
+   </target>
+
+</project>
