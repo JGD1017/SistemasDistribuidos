@@ -13,8 +13,18 @@
    </target>
 
    <target name="empaqueta" depends="compila">
-      <jar destfile="${base}/../jar/HelloWorld.jar" includes="${base}/../class/**/*.class"/>
+      <jar destfile="${base}/../jar/HelloWorld.jar">
+         <fileset dir="${base}/../class"/>
+         <manifest>
+            <attribute name="Main-Class" value="helloworld.HelloWorld"/>
+         </manifest>
+      </jar>
    </target>
+
+<jar destfile="build/main/checksites.jar">
+
+</jar>
+
 
    <target name="compila" depends="init">
       <javac debug="true" deprecation="true" includeantruntime="false" srcdir="${base}" destdir="${base}/../class"/>
