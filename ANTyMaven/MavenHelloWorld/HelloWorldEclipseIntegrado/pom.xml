@@ -31,6 +31,20 @@
 	</plugins>
   </build>
 
+  <reporting>
+	  <plugins>
+		  <plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-resources-plugin</artifactId>
+			  <version>3.3.1</version>
+			  <configuration>
+				  <source>1.5</source>
+				  <maxmemory>512</maxmemory>
+			  </configuration>
+		  </plugin>
+	  </plugins>
+  </reporting>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
