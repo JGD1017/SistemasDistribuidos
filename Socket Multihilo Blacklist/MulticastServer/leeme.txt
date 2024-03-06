@@ -1,5 +1,0 @@
-El proyecto depende de QuoteDatagramServer por lo que debe ser añadido en el build path en Eclipse.
-El proyecto tiene que estar abierto para evitar errores.
-
-Para compilar desde maven previamente se debe haber instalado el .jar de QuoteDatagramServer en el repositorio local:
-$> mvn install (en el proyecto QuoteDatagramServer

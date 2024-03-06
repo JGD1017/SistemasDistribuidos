@@ -1,4 +1,0 @@
-Es necesario cambiar el nivel de compilación a Java 7 puesto que se usan "try con recursos".
-En propiedades del proyecto, Java compiler, cambiar el nivel de 1.5 a 1.7.
-
-Para ejecutar desde maven tanto cliente como servidor: $> mvn exec:java
