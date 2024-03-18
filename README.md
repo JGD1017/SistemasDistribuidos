@@ -20,4 +20,4 @@ Carpeta Socket Multihilo Blacklist
 Añadido proyectos servidor clientes multihilo con blacklist de los puertos 55000 a 57000
 
 Carpeta RMI-HolaMundo
-Añadida modificación del holamundo con 3 objetos
+Añadida modificación del holamundo con 3 objetos nuevos: el servidor dice hola, dice la hora, dice la fecha y dice adios
