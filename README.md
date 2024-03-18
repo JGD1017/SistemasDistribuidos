@@ -15,3 +15,6 @@ Añadido proyecto HelloWorld generado para Maven por integración en Eclipse
 
 Carpeta MavenHelloWorld/HelloWorldClassic
 Añadido proyecto HelloWorld generado en Eclipse y convertido a tipo Maven
+
+Carpeta Socket Multihilo Blacklist
+Añadido proyectos servidor clientes multihilo con blacklist de los puertos 55000 a 57000
