@@ -18,3 +18,6 @@ Añadido proyecto HelloWorld generado en Eclipse y convertido a tipo Maven
 
 Carpeta Socket Multihilo Blacklist
 Añadido proyectos servidor clientes multihilo con blacklist de los puertos 55000 a 57000
+
+Carpeta RMI-HolaMundo
+Añadida modificación del holamundo con 3 objetos
