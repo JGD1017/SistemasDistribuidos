@@ -4,6 +4,10 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 /**
  * Servidor remoto.
  *
@@ -17,6 +21,37 @@ public class Servidor implements HolaMundo {
 	 */
     public String decirHola() {
 		return "Hola mundo!";
+    }
+	
+	/**
+	 * {@inheritDoc}.
+	 *
+	 * @return {@inheritDoc}
+	 */
+    public String decirAdios() {
+		return "Adios mundo!";
+    }
+	
+	/**
+	 * {@inheritDoc}.
+	 *
+	 * @return {@inheritDoc}
+	 */
+    public String decirHora() {
+    	DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    	Date date = new Date();
+		return "Hora actual: "+dateFormat.format(date);
+    }	
+    
+	/**
+	 * {@inheritDoc}.
+	 *
+	 * @return {@inheritDoc}
+	 */
+    public String decirFecha() {
+    	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    	Date date = new Date();
+		return "Hoy es: "+dateFormat.format(date);
     }
 	
 	/**

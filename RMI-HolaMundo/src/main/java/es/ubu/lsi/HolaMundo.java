@@ -15,5 +15,8 @@ public interface HolaMundo extends Remote {
 	 * @throws RemoteException problema en acceso remoto
 	 */
     String decirHola() throws RemoteException;
+    String decirHora() throws RemoteException;
+    String decirFecha() throws RemoteException;
+    String decirAdios() throws RemoteException;
     
 } // HolaMundo

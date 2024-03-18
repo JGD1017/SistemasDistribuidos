@@ -27,7 +27,13 @@ public class Cliente {
 		   // Resuelve el objeto remoto (la referencia a...)
 	 	   HolaMundo stub = (HolaMundo) registry.lookup("Hola");
 	 	   String respuesta = stub.decirHola();
-	       System.out.println("Respuesta del servidor remoto: " + respuesta);
+	       System.out.println("Respuesta del servidor remoto: " + respuesta);	 	   
+	       String respuesta1 = stub.decirHora();
+	       System.out.println("Respuesta del servidor remoto: " + respuesta1);	 	   
+	       String respuesta2 = stub.decirFecha();
+	       System.out.println("Respuesta del servidor remoto: " + respuesta2);	 	   
+	       String respuesta3 = stub.decirAdios();
+	       System.out.println("Respuesta del servidor remoto: " + respuesta3);
 		} 
 		catch (Exception e) {
 	    	System.err.println("Excepción en cliente: " + e.toString());
