@@ -26,6 +26,9 @@
   <profiles>
 	<profile>
 		<id>server</id>
+		<activation>
+        	<activeByDefault>true</activeByDefault>
+		</activation>
 		<build>
 			<plugins>
 				<plugin>
@@ -66,7 +69,11 @@
     </profile>
     <profile>
     	<id>client</id>
+    	<activation>
+        	<activeByDefault>true</activeByDefault>
+		</activation>
        	<build>
+			<finalName>WhatEverYouLikey</finalName>
         	<plugins>
             	<plugin>
                 	<groupId>org.apache.maven.plugins</groupId>

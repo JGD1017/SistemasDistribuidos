@@ -1,5 +1,9 @@
 package es.ubu.lsi.client;
 
-public class ChatClient {
+import es.ubu.lsi.common.ChatMessage;
 
+public interface ChatClient {
+    void sendMessage(ChatMessage msg);
+    void disconnect();
+    boolean start();
 }
