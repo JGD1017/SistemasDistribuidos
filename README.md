@@ -21,3 +21,6 @@ Añadido proyectos servidor clientes multihilo con blacklist de los puertos 5500
 
 Carpeta RMI-HolaMundo
 Añadida modificación del holamundo con 3 objetos nuevos: el servidor dice hola, dice la hora, dice la fecha y dice adios
+
+Carpeta CHAT
+Añadido chat con sockets y baneo
