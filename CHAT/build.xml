@@ -16,7 +16,7 @@
         <mkdir dir="${doc.dir}"/>
     </target>
     <target name="compile" depends="init">
-        <javac srcdir="${src.dir}" destdir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="true"/>
     </target>
     <target name="javadoc" depends="compile">
         <javadoc packagenames="*" sourcepath="${src.dir}" destdir="${doc.dir}"/>
