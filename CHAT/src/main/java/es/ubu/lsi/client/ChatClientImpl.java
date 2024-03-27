@@ -53,10 +53,12 @@ public class ChatClientImpl implements ChatClient {
             socket = new Socket(serverAddress, serverPort);
             outputStream = new ObjectOutputStream(socket.getOutputStream());
             inputStream = new ObjectInputStream(socket.getInputStream());
+            System.out.println("Cliente iniciado en " + serverAddress + " como "+ nickname);
 
             outputStream.writeObject(nickname);
 
             chatListener = new ChatClientListener(inputStream);
+            chatListener.setOwner(this);
             new Thread(chatListener).start();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -113,10 +115,15 @@ public class ChatClientImpl implements ChatClient {
 			e.printStackTrace();
 		}
     }
+    
+    private boolean isBanned(int id) {
+    	return userBanned.get(id)!=null;
+    }
 
     private static class ChatClientListener implements Runnable {
         private ObjectInputStream inputStream;
         private boolean active;
+        private ChatClientImpl owner;
         
         public ChatClientListener(ObjectInputStream inputStream) {
             this.inputStream = inputStream;
@@ -128,13 +135,19 @@ public class ChatClientImpl implements ChatClient {
             try {
                 while (active) {
                     ChatMessage message = (ChatMessage) inputStream.readObject();
-                    System.out.println(message.getId() + ": " + message.getMessage());
+                    if(owner.isBanned(message.getId())) {
+                    	System.out.println(message.getId() + ": " + message.getMessage());
+                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
+        }
+        
+        private void setOwner(ChatClientImpl owner) {
+        	this.owner = owner;
         }
         
         public void stop() {

@@ -1,29 +1,25 @@
-<project name="CHAT" default="dist" basedir=".">
+<project name="CHAT" default="javadoc" basedir=".">
     <description>
         Documentación de la práctica de Chat con sockets
     </description>
     <!-- Propiedades -->
     <property name="src.dir" location="src"/>
     <property name="build.dir" location="build"/>
-    <property name="lib.dir" location="lib"/>
     <property name="doc.dir" location="doc"/>
     <!-- Rutas de archivos -->
-    <path id="classpath">
-        <fileset dir="${lib.dir}" includes="**/*.jar"/>
-    </path>
     <path id="src.path">
         <fileset dir="${src.dir}" includes="**/*.java"/>
     </path>
     <!-- Tareas -->
-    <target name="init">
+    <target name="init" depends="clean">
         <mkdir dir="${build.dir}"/>
         <mkdir dir="${doc.dir}"/>
     </target>
     <target name="compile" depends="init">
-        <javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="classpath"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}"/>
     </target>
     <target name="javadoc" depends="compile">
-        <javadoc packagenames="es.ubu.lsi" sourcepath="${src.dir}" destdir="${doc.dir}"/>
+        <javadoc packagenames="*" sourcepath="${src.dir}" destdir="${doc.dir}"/>
     </target>
     <target name="clean">
         <delete dir="${build.dir}"/>
