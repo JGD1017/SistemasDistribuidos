@@ -1,0 +1,28 @@
+<project name="Practica2ChatRMI" default="javadoc" basedir=".">
+    <description>
+        Documentación de la práctica de Chat con sockets
+    </description>
+    <!-- Propiedades -->
+    <property name="srcdir" location="src"/>
+    <property name="builddir" location="build"/>
+    <property name="docdir" location="doc"/>
+    <!-- Rutas de archivos -->
+    <path id="srcpath">
+        <fileset dir="${srcdir}" includes="**/*.java"/>
+    </path>
+    <!-- Tareas -->
+    <target name="init" depends="clean">
+        <mkdir dir="${builddir}"/>
+        <mkdir dir="${docdir}"/>
+    </target>
+    <target name="compile" depends="init">
+        <javac srcdir="${srcdir}" destdir="${builddir}" includeantruntime="true"/>
+    </target>
+    <target name="javadoc" depends="compile">
+        <javadoc packagenames="*" sourcepath="${srcdir}" destdir="${docdir}"/>
+    </target>
+    <target name="clean">
+        <delete dir="${builddir}"/>
+        <delete dir="${docsdir}"/>
+    </target>
+</project>
