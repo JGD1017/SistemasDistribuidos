@@ -10,7 +10,7 @@ import es.ubu.lsi.server.ChatServer;
 
 public class ChatClientStarter {
 
-    public static void main(String[] args) {
+	public ChatClientStarter(String[] args) {
         if (args.length < 1) {
             System.out.println("Usage: java ChatClientStarter <nickname> [<host>]");
             return;
