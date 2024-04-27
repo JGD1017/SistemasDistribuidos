@@ -79,23 +79,31 @@ public class ChatServerImpl extends UnicastRemoteObject implements ChatServer {
 	 */
     @Override
     public synchronized void publish(ChatMessage msg) throws RemoteException {  
-    	if (msg.getMessage().startsWith("ban")) {
-    		// Baneo de usuario
-    		String userBannedNew = msg.getMessage().split(" ")[1];
-    		banned(userBannedNew, msg.getNickname());
-            msg.setMessage("Ha baneado a " + userBannedNew);
-    	} else if (msg.getMessage().startsWith("unban")) {
-    		// Desbaneo de usuario
-    		String userUnbanned = msg.getMessage().split(" ")[1];
-    		unBanned(userUnbanned, msg.getNickname());
-            msg.setMessage("Ha desbaneado a " + userUnbanned); 
+    	// Si está baneado se ignoran los mensajes
+    	if (!(userBanned.containsKey(msg.getNickname())&&userBanned.get(msg.getNickname()))) {
+    		boolean allusers = false; // Para mandar la confirmación del ban/unban a todos los usuarios
+    		if (msg.getMessage().startsWith("ban")) {
+    			// Baneo de usuario
+    			String userBannedNew = msg.getMessage().split(" ")[1];
+    			banned(userBannedNew, msg.getNickname());
+    			msg.setMessage("Ha baneado a " + userBannedNew);
+    			allusers=true;
+    		} else if (msg.getMessage().startsWith("unban")) {
+    			// Desbaneo de usuario
+    			String userUnbanned = msg.getMessage().split(" ")[1];
+    			unBanned(userUnbanned, msg.getNickname());
+    			msg.setMessage("Ha desbaneado a " + userUnbanned); 
+    			allusers=true;
+    		}
+    		for (ChatClient client : clients.values()) {
+    			// Solo enviamos el mensaje al resto de usuarios no al origen ni baneados
+    			// Salvo que sea un aviso de ban/unban
+    			if (allusers || (!client.getNickName().equals(msg.getNickname())&&
+    					!(userBanned.containsKey(client.getNickName())&&userBanned.get(client.getNickName())))) {
+    				client.receive(msg);
+    			}
+    		}
     	}
-        for (ChatClient client : clients.values()) {
-        	// Solo enviamos el mensaje al resto de usuarios no al origen
-        	if (!client.getNickName().equals(msg.getNickname())) {
-        		client.receive(msg);
-        	}
-        }
     }
 
 	/**
