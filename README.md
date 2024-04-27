@@ -24,3 +24,13 @@ Añadida modificación del holamundo con 3 objetos nuevos: el servidor dice hola
 
 Carpeta CHAT
 Añadido chat con sockets y baneo
+
+Carpeta Practica2CharRMI
+Añadido chat RMI con baneo de usuarios
+Primero hacer un mvn package en el proyecto Practica2ChatRMI para que se genere el jar y se copien los ficheros al otro proyecto 
+Después hacer un mvn package en el proyecto Practica2ChatRMI-Web
+Lanzar glassfish
+Copiar el war generado en la carpeta autodeploy de glassfish con el nombre Practica2CharRMI-Web.war
+Lanzar en una consola registro.bat
+Lanzar en otra consola servidor.bat
+Lanzar por cada cliente que se desee una consola lanzando cliente.bat <nicname>
