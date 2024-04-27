@@ -78,7 +78,7 @@ public class ChatServerImpl extends UnicastRemoteObject implements ChatServer {
 	 * @throws RemoteException remote error
 	 */
     @Override
-    public synchronized void publish(ChatMessage msg) throws RemoteException {    	
+    public synchronized void publish(ChatMessage msg) throws RemoteException {  
     	if (msg.getMessage().startsWith("ban")) {
     		// Baneo de usuario
     		String userBannedNew = msg.getMessage().split(" ")[1];
@@ -119,10 +119,8 @@ public class ChatServerImpl extends UnicastRemoteObject implements ChatServer {
      *
      */
     private void banned(String nick, String user){
-    	if (userBanned.put(nick,true)) {
-            System.out.println(sdf.format(new Date()) + " " + user + " ha baneado a " + nick);
-    	}
-    	
+    	userBanned.put(nick,true);
+    	System.out.println(sdf.format(new Date()) + " " + user + " ha baneado a " + nick);    	
     }
     
     /**
@@ -135,8 +133,7 @@ public class ChatServerImpl extends UnicastRemoteObject implements ChatServer {
      *
      */
     private void unBanned(String nick, String user){
-    	if (userBanned.put(nick,false)) {
-            System.out.println(sdf.format(new Date()) + " " + user + " ha desbaneado a " + nick);
-    	}
-	}
+    	userBanned.put(nick,false);
+    	System.out.println(sdf.format(new Date()) + " " + user + " ha desbaneado a " + nick);
+    }
 }
