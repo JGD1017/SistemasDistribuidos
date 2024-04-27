@@ -46,14 +46,14 @@ public class ChatClientStarter extends Applet{
          	// Invoca el método del servidor remoto para registrarse            
             int clientId = server.checkIn(client);
             client.setId(clientId);
-            System.out.println("Te has unido al chat");
+            System.out.println("Te has unido al chat como " + nickname);
 
             // Inciamos el scanner de la entrada estándar
             Scanner scanner = new Scanner(System.in);
             String input;
             while (!(input = scanner.nextLine()).equalsIgnoreCase("logout")) {
-                // Aquí puedes implementar la lógica para enviar mensajes al servidor
-            	server.publish(new ChatMessage(clientId, nickname, input));
+        		// Envio de mensajes que no son de logout
+        		server.publish(new ChatMessage(clientId, nickname, input));
             }
 
             // Hemos recibido logout

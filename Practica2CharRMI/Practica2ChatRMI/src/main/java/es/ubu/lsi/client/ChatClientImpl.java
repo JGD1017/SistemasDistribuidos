@@ -4,6 +4,8 @@ import es.ubu.lsi.common.ChatMessage;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * ChatClientImpl.
@@ -18,6 +20,9 @@ public class ChatClientImpl extends UnicastRemoteObject implements ChatClient {
     private int id;
     private String nickname;
 
+	// Para mostrar la hora de los mensajes
+	private SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    
 	/**
 	 * Constructor.
 	 * 
@@ -61,7 +66,7 @@ public class ChatClientImpl extends UnicastRemoteObject implements ChatClient {
 	 */
     @Override
     public void receive(ChatMessage msg) throws RemoteException {
-        System.out.println(msg.getNickname() + ": " + msg.getMessage());
+        System.out.println(sdf.format(new Date()) + " " + msg.getNickname() + ": " + msg.getMessage());
     }
  
 	/**
