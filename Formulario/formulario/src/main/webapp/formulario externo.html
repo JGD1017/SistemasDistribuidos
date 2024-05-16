@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con JavaScript externo</title>
+    <script src="js/validation.js"></script>
+</head>
+<body>
+    <h2>Formulario con JavaScript externo</h2>
+    <form name="formulario" action="ProcesarFormulario" method="post" onsubmit="return validarFormulario()">
+        Nombre: <input type="text" name="nombre"><br>
+        Email: <input type="email" name="email"><br>
+        Teléfono: <input type="tel" name="telefono"><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
