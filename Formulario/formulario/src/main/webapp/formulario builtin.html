@@ -8,9 +8,9 @@
 <body>
     <h2>Formulario con validación HTML5</h2>
     <form name="formulario" action="ProcesarFormulario" method="post">
-        Nombre: <input type="text" name="nombre" required><br>
-        Email: <input type="email" name="email" required><br>
-        Teléfono: <input type="tel" name="telefono" required><br>
+        Nombre: <input type="text" name="nombre" required pattern="^[A-Za-zÀ-ÿ ,.'-]+$" title="El nombre solo debe contener letras y espacios"><br>
+        Email: <input type="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"><br> <!-- Email ya se autovalida aunque solo con el @ por eso la expresion regular-->
+        Teléfono: <input type="tel" name="telefono" required pattern="\d{9}" title="El teléfono debe contener exactamente 9 dígitos"><br>
         <input type="submit" value="Enviar">
     </form>
 </body>
