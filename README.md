@@ -34,3 +34,12 @@ Copiar el war generado en la carpeta autodeploy de glassfish con el nombre Pract
 Lanzar en una consola registro.bat
 Lanzar en otra consola servidor.bat
 Lanzar por cada cliente que se desee una consola lanzando cliente.bat <nicname>
+
+Carpeta Formulario/formulario
+Añadido formularios html con validación y llamada a servlet eco
+Hacer un mvn package en el proyecto formulario
+Lanzar glassfish
+Copiar el war generado en la carpeta autodeploy de glassfish con el nombre formulario.war
+Abrir http://localhost:8080/formulario/formulario.html para el formulario con JS embebido
+Abrir http://localhost:8080/formulario/formulario%20externo.html para el formulario con llamada a JS externo
+Abrir http://localhost:8080/formulario/formulario%20builtin.html para el formulario con validación HTML5
