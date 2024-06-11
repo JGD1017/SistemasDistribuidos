@@ -43,3 +43,11 @@ Copiar el war generado en la carpeta autodeploy de glassfish con el nombre formu
 Abrir http://localhost:8080/formulario/formulario.html para el formulario con JS embebido
 Abrir http://localhost:8080/formulario/formulario%20externo.html para el formulario con llamada a JS externo
 Abrir http://localhost:8080/formulario/formulario%20builtin.html para el formulario con validación HTML5
+
+Carpeta ChatWeb/Practica3ChatWeb
+Añadido chatweb
+Hacer un mvn package en el proyecto Practica3ChatWeb
+Lanzar glassfish
+Copiar el war generado en la carpeta autodeploy de glassfish con el nombre Practica3ChatWeb.war
+Abrir http://localhost:8080/Practica3ChatWeb/index.jsp para iniciar el chat
+Dado que usa sesión, es necesario abrir un navegador diferente para cada usuario, no vale con abrir una pestaña nueva o una de incógnito
