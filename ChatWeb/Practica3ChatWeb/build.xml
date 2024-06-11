@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Practica3ChatWeb" default="build" basedir=".">
+    
+    <!-- Definición de propiedades -->
+    <property name="src.dir" value="src"/>
+    <property name="docs.dir" value="docs"/>
+	
+    <!-- Tarea principal para el build -->
+    <target name="build" depends="javadoc"/>
+    
+    <!-- Tarea para generar la doc -->
+    <target name="javadoc">
+        <mkdir dir="${docs.dir}"/>
+		<javadoc destdir="${docs.dir}" access="private">
+			<fileset dir="${src.dir}">
+				<include name="**/*.java" />
+			</fileset>
+		</javadoc>
+    </target>
+</project>
